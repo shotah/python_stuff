@@ -41,6 +41,14 @@ class parkinglot:
                     return self.garage[floor][space]
         return {}
 
+    def get_amount_of_available_spaces(self, *, size: str = "") -> int:
+        amount_of_spaces = 0
+        for floor in self.garage.keys():
+            for space in self.garage[floor]:
+                if self.__check_space_is_empty(floor=floor, space=space, size=size):
+                    amount_of_spaces += 1
+        return amount_of_spaces
+
     def reserve_space(self, spot: dict) -> bool:
         if not spot:
             return False
