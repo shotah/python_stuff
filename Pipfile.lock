@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "637cd8b524edfefcbb6b6e0e0351621d6da11ceb521731d02260812895824d09"
+            "sha256": "1a775b9033045e36de2b9dd9478d9fac13a067ad325831533a34e08884cef415"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -15,7 +15,16 @@
             }
         ]
     },
-    "default": {},
+    "default": {
+        "structlog": {
+            "hashes": [
+                "sha256:760d37b8839bd4fe1747bed7b80f7f4de160078405f4b6a1db9270ccbfce6c30",
+                "sha256:94b29b1d62b2659db154f67a9379ec1770183933d6115d21f21aa25cfc9a7393"
+            ],
+            "index": "pypi",
+            "version": "==22.1.0"
+        }
+    },
     "develop": {
         "astpretty": {
             "hashes": [
@@ -32,6 +41,14 @@
             ],
             "markers": "python_version >= '3.5'",
             "version": "==22.1.0"
+        },
+        "autopep8": {
+            "hashes": [
+                "sha256:6f09e90a2be784317e84dc1add17ebfc7abe3924239957a37e5040e27d812087",
+                "sha256:ca9b1a83e53a7fad65d731dc7a2a2d50aa48f43850407c59f6a1a306c4201142"
+            ],
+            "index": "pypi",
+            "version": "==1.7.0"
         },
         "black": {
             "hashes": [
@@ -129,14 +146,6 @@
             ],
             "index": "pypi",
             "version": "==0.0.7"
-        },
-        "flake8-black": {
-            "hashes": [
-                "sha256:7d667d0059fd1aa468de1669d77cc934b7f1feeac258d57bdae69a8e73c4cd90",
-                "sha256:8211f5e20e954cb57c709acccf2f3281ce27016d4c4b989c3e51f878bb7ce12a"
-            ],
-            "index": "pypi",
-            "version": "==0.3.3"
         },
         "flake8-cognitive-complexity": {
             "hashes": [
@@ -345,7 +354,7 @@
                 "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b",
                 "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
             ],
-            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2'",
             "version": "==0.10.2"
         },
         "tomli": {
