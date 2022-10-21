@@ -1,4 +1,11 @@
-all: hooks lint install-dev
+PIPENV_IGNORE_VIRTUALENVS=1
+
+all: hooks install-dev lint test
+
+PHONY: clean
+clean:
+	pipenv clean || echo "no environment found to clean"
+	pipenv run python -c "import os; os.remove('Pipfile.lock')" || echo "no lock file to remove"
 
 PHONY: lint
 lint:
@@ -26,4 +33,5 @@ sync-dev:
 
 PHONY: hooks
 hooks:
-	pipenv run pre-commit install
+	pip install pre-commit
+	pre-commit install
