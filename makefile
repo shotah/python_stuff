@@ -13,7 +13,11 @@ lint:
 
 PHONY: test
 test:
-	pipenv run pytest .
+	pipenv run pytest --new-first
+
+PHONY: test-failed
+test-failed:
+	pipenv run pytest --last-failed --exitfirst
 
 PHONY: install
 install:
