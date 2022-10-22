@@ -8,6 +8,7 @@ structlog = "*"
 
 [dev-packages]
 pytest = "*"
+pytest-cov = "*"
 pre-commit = "*"
 isort = "*"
 black = "*"

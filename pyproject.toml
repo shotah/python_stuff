@@ -11,3 +11,9 @@ aggressive = 3
 
 [tool.black]
 line-length = 88
+
+[tool.pytest.ini_options]
+addopts = "--cov=. --cov-branch --cov-report term-missing --cov-fail-under=80 --color=yes"
+
+[tool.coverage.run]
+omit = ["tests/*", "__init__*", "scrap*"]
