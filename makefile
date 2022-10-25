@@ -9,7 +9,7 @@ clean:
 
 PHONY: lint
 lint:
-	pipenv run pre-commit run --all-files
+	pre-commit run --all-files
 
 PHONY: test
 test:
