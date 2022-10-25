@@ -8,15 +8,13 @@ log = get_logger(__name__)
 
 
 def test_tree_root():
-    test_tree = Tree()
-    test_tree.insert(value=30)
+    test_tree = Tree(value=30)
     log.info("test_tree", test_tree=vars(test_tree.root))
     assert test_tree.root.value == 30  # type: ignore
 
 
 def test_tree_left_right():
-    test_tree = Tree()
-    test_tree.insert(value=30)
+    test_tree = Tree(value=30)
     test_tree.insert(value=50)
     test_tree.insert(value=15)
     log.info("test_tree", test_tree=vars(test_tree.root))
@@ -25,8 +23,7 @@ def test_tree_left_right():
 
 
 def test_tree_grandchild_left():
-    test_tree = Tree()
-    test_tree.insert(value=30)
+    test_tree = Tree(value=30)
     test_tree.insert(value=50)
     test_tree.insert(value=15)
 
@@ -38,8 +35,7 @@ def test_tree_grandchild_left():
 
 
 def test_tree_grandchild_right():
-    test_tree = Tree()
-    test_tree.insert(value=30)
+    test_tree = Tree(value=30)
     test_tree.insert(value=50)
     test_tree.insert(value=15)
 
@@ -54,8 +50,7 @@ def test_tree_grandchild_right():
 
 
 def test_tree_in_order():
-    test_tree = Tree()
-    test_tree.insert(value=30)
+    test_tree = Tree(value=30)
     test_tree.insert(value=50)
     test_tree.insert(value=15)
 
