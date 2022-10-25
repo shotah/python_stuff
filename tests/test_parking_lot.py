@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from structlog import get_logger
 
-from ..main import car, parkinglot
+from ..src.parking_lot import car, parkinglot
 
 logger = get_logger(__name__)
 
