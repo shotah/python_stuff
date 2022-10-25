@@ -1,3 +1,5 @@
+from typing import Union
+
 from structlog import get_logger
 
 log = get_logger(__name__)
@@ -8,45 +10,49 @@ class TreeNode:
     left = None
     right = None
 
-    def __init__(self, *, value):
+    def __init__(self, *, value: int):
         self.value = value
+        self.left: Union[TreeNode, None] = None
+        self.right: Union[TreeNode, None] = None
 
 
 class Tree:
-    root = None
+    def __init__(self, *, value: int):
+        self.root: Union[TreeNode, None] = TreeNode(value=value)
 
-    def insert(self, *, value):
-        node = TreeNode(value=value)
-        if not self.root:
-            self.root = node
-            return
-        prev = None
-        temp = self.root
-        while temp:
-            if temp.value > value:
-                prev = temp
-                temp = temp.left
-            elif temp.value < value:
-                prev = temp
-                temp = temp.right
-        log.info("insert", prev=vars(prev))
-        if prev.value > value:  # type: ignore
-            log.info("insert", left=vars(node))
-            prev.left = node  # type: ignore
-        else:
-            log.info("insert", right=vars(node))
-            prev.right = node  # type: ignore
+    def __get_prev_node(self, *, root_node: Union[TreeNode, None], value: int):
+        prev_node: Union[TreeNode, None] = None
+        curr_node = root_node
+        while curr_node:
+            if curr_node.value > value:
+                prev_node: Union[TreeNode, None] = curr_node
+                curr_node: Union[TreeNode, None] = curr_node.left
+            else:
+                prev_node: Union[TreeNode, None] = curr_node
+                curr_node: Union[TreeNode, None] = curr_node.right
+        return prev_node
+
+    def __set_prev_node(self, *, prev_node: Union[TreeNode, None], value: int):
+        if prev_node:
+            if prev_node.value > value:
+                prev_node.left = TreeNode(value=value)
+            else:
+                prev_node.right = TreeNode(value=value)
+
+    def insert(self, *, value: int):
+        prev_node = self.__get_prev_node(root_node=self.root, value=value)
+        self.__set_prev_node(prev_node=prev_node, value=value)
 
     def in_order(self):
-        temp = self.root
         stack = []
         response = []
-        while temp or len(stack):
-            if temp:
-                stack.append(temp)
-                temp = temp.left
+        while self.root or len(stack):
+            if self.root:
+                stack.append(self.root)
+                self.root: Union[TreeNode, None] = self.root.left
             else:
-                temp = stack.pop()
-                response.append(temp.value)
-                temp = temp.right
+                self.root = stack.pop()
+                if self.root:
+                    response.append(self.root.value)
+                    self.root: Union[TreeNode, None] = self.root.right
         return response
