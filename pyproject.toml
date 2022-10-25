@@ -1,7 +1,7 @@
 [tool.flake8]
 max-line-length = 88
 ignore = ["E111", "W503"]
-exclude = ["*.md", "*.toml", "*.yaml", "*.json", "Pipfile*", "LICENSE", "makefile", ".*", "scrap*", "pre-commit.yml"]
+exclude = ["*.md", "*.toml", "*.yaml", "*.json", "Pipfile*", "LICENSE", "makefile", ".*", "scrap*", "lint_and_test.yml"]
 max-cognitive-complexity=8
 
 [tool.autopep8]
